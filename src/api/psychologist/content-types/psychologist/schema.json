@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "psychologists",
+  "info": {
+    "singularName": "psychologist",
+    "pluralName": "psychologists",
+    "displayName": "Psychologist",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "firstName": {
+      "type": "string",
+      "required": true
+    },
+    "lastName": {
+      "type": "string",
+      "required": true
+    },
+    "isMarried": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "dateBirth": {
+      "required": true,
+      "type": "date"
+    },
+    "city": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::city.city"
+    },
+    "address": {
+      "type": "string"
+    },
+    "metro": {
+      "type": "string"
+    },
+    "startWork": {
+      "type": "date",
+      "required": true
+    }
+  }
+}

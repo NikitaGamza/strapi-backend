@@ -1,0 +1,64 @@
+{
+  "kind": "collectionType",
+  "collectionName": "advices",
+  "info": {
+    "singularName": "advice",
+    "pluralName": "advices",
+    "displayName": "Advices",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "adviceImg": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "authorFIO": {
+      "type": "string",
+      "required": true
+    },
+    "authorStatus": {
+      "type": "string",
+      "required": true
+    },
+    "authorImg": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "adviceText": {
+      "type": "blocks",
+      "required": true
+    },
+    "adviceText2": {
+      "type": "richtext",
+      "required": true
+    },
+    "themes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::theme.theme",
+      "mappedBy": "advice"
+    }
+  }
+}

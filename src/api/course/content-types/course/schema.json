@@ -1,0 +1,98 @@
+{
+  "kind": "collectionType",
+  "collectionName": "courses",
+  "info": {
+    "singularName": "course",
+    "pluralName": "courses",
+    "displayName": "Course",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "courseName": {
+      "type": "string",
+      "required": true
+    },
+    "courseDescription": {
+      "type": "text",
+      "required": true
+    },
+    "format": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::format.format",
+      "inversedBy": "course"
+    },
+    "startDate": {
+      "type": "date",
+      "required": true
+    },
+    "duralation": {
+      "type": "integer",
+      "required": true
+    },
+    "time": {
+      "type": "time",
+      "required": true
+    },
+    "weekDay": {
+      "type": "string",
+      "required": true
+    },
+    "address": {
+      "type": "string"
+    },
+    "themes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::theme.theme"
+    },
+    "imgMobile": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "imgMain": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "about": {
+      "type": "richtext",
+      "required": true
+    },
+    "aboutMediaLink": {
+      "type": "string"
+    },
+    "learn": {
+      "type": "json",
+      "required": true
+    },
+    "price": {
+      "type": "integer",
+      "required": true
+    },
+    "course_type": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::course-type.course-type"
+    },
+    "course_fit_fors": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::course-fit-for.course-fit-for"
+    },
+    "priceMonth": {
+      "type": "integer"
+    }
+  }
+}

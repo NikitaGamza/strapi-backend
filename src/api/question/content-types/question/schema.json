@@ -1,0 +1,62 @@
+{
+  "kind": "collectionType",
+  "collectionName": "questions",
+  "info": {
+    "singularName": "question",
+    "pluralName": "questions",
+    "displayName": "questions",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "question": {
+      "type": "blocks"
+    },
+    "clientName": {
+      "type": "string"
+    },
+    "clientStatus": {
+      "type": "string"
+    },
+    "clientImg": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "answerFIO": {
+      "type": "string"
+    },
+    "answerStatus": {
+      "type": "string"
+    },
+    "answerImg": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "answerText": {
+      "type": "blocks"
+    },
+    "themes": {
+      "type": "json"
+    }
+  }
+}

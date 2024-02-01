@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "course_fit_fors",
+  "info": {
+    "singularName": "course-fit-for",
+    "pluralName": "course-fit-fors",
+    "displayName": "CourseFitFor"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "img": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "head": {
+      "type": "string",
+      "required": true
+    },
+    "text": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

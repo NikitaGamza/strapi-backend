@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_work_works",
+  "info": {
+    "displayName": "work"
+  },
+  "options": {},
+  "attributes": {
+    "workPlace": {
+      "type": "string",
+      "required": true
+    },
+    "workTitle": {
+      "type": "string",
+      "required": true
+    },
+    "startYear": {
+      "type": "integer",
+      "required": true,
+      "min": 0,
+      "default": 0
+    },
+    "endYear": {
+      "type": "integer",
+      "min": 0,
+      "default": 0
+    }
+  }
+}

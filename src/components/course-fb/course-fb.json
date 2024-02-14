@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_course_fb_course_fbs",
+  "info": {
+    "displayName": "courseFb"
+  },
+  "options": {},
+  "attributes": {
+    "fbImg": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "fbImgUrl": {
+      "type": "string",
+      "required": true
+    },
+    "fbName": {
+      "type": "string",
+      "required": true
+    },
+    "fbDate": {
+      "type": "date",
+      "required": true
+    },
+    "fbRank": {
+      "type": "integer",
+      "required": true,
+      "max": 5,
+      "min": 0
+    },
+    "fbText": {
+      "type": "richtext",
+      "required": true
+    }
+  }
+}

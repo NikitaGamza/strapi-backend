@@ -1,0 +1,96 @@
+{
+  "kind": "collectionType",
+  "collectionName": "interviews",
+  "info": {
+    "singularName": "interview",
+    "pluralName": "interviews",
+    "displayName": "Interview"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "firstName": {
+      "type": "string",
+      "required": true
+    },
+    "lastName": {
+      "type": "string",
+      "required": true
+    },
+    "university": {
+      "type": "string",
+      "required": true
+    },
+    "speciality": {
+      "type": "string",
+      "required": true
+    },
+    "endYear": {
+      "type": "integer",
+      "required": true
+    },
+    "qualification": {
+      "type": "enumeration",
+      "enum": [
+        "Магистр",
+        "Бакалавр",
+        "Специалист"
+      ],
+      "required": true,
+      "default": "Магистр"
+    },
+    "repair": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "addEdu": {
+      "displayName": "addEdu",
+      "type": "component",
+      "repeatable": true,
+      "component": "add-edu.add-edu"
+    },
+    "academicDegree": {
+      "type": "enumeration",
+      "enum": [
+        "К.п.н (Кандидат психологич. наук)",
+        "Д.п.н. (Доктор психологич. наук)",
+        "К.м.н. (Кандидат мед. наук)",
+        "Д.м.н. (Доктор мед. наук)",
+        "Нет"
+      ],
+      "required": true,
+      "default": "К.п.н (Кандидат психологич. наук)"
+    },
+    "diploma": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "experience": {
+      "type": "integer",
+      "required": true,
+      "default": 0,
+      "min": 0
+    },
+    "work": {
+      "displayName": "work",
+      "type": "component",
+      "repeatable": true,
+      "component": "work.work"
+    },
+    "email": {
+      "type": "string",
+      "required": true
+    },
+    "phone": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

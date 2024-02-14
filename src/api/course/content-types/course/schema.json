@@ -73,13 +73,11 @@
     "aboutMediaLink": {
       "type": "string"
     },
-    "learn": {
-      "type": "json",
-      "required": true
-    },
-    "price": {
+    "priceFull": {
       "type": "integer",
-      "required": true
+      "required": true,
+      "min": 0,
+      "default": 0
     },
     "course_type": {
       "type": "relation",
@@ -92,7 +90,39 @@
       "target": "api::course-fit-for.course-fit-for"
     },
     "priceMonth": {
-      "type": "integer"
+      "type": "integer",
+      "min": 0,
+      "default": 0
+    },
+    "learn": {
+      "displayName": "learn",
+      "type": "component",
+      "repeatable": true,
+      "component": "learn.learn",
+      "required": true
+    },
+    "program": {
+      "displayName": "program",
+      "type": "component",
+      "repeatable": true,
+      "component": "program.program"
+    },
+    "psychologists": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::psychologist.psychologist"
+    },
+    "courseFb": {
+      "displayName": "courseFb",
+      "type": "component",
+      "repeatable": true,
+      "component": "course-fb.course-fb"
+    },
+    "freePlace": {
+      "type": "integer",
+      "default": 0,
+      "required": true,
+      "min": 0
     }
   }
 }

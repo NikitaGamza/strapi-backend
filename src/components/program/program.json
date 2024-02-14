@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_program_programs",
+  "info": {
+    "displayName": "program"
+  },
+  "options": {},
+  "attributes": {
+    "programTitle": {
+      "type": "string",
+      "required": true
+    },
+    "programDescription": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

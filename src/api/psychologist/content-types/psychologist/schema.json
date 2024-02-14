@@ -43,6 +43,75 @@
     "startWork": {
       "type": "date",
       "required": true
+    },
+    "sex": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    },
+    "education": {
+      "displayName": "education",
+      "type": "component",
+      "repeatable": true,
+      "component": "education.education"
+    },
+    "experience": {
+      "displayName": "experience",
+      "type": "component",
+      "repeatable": true,
+      "component": "experience.experience",
+      "required": true
+    },
+    "methods": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::method.method"
+    },
+    "themes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::theme.theme"
+    },
+    "aboutQuote": {
+      "type": "string",
+      "required": true
+    },
+    "aboutText": {
+      "type": "richtext",
+      "required": true
+    },
+    "diploma": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "feedbacks": {
+      "displayName": "feedbacks",
+      "type": "component",
+      "repeatable": true,
+      "component": "feedbacks.feedbacks"
+    },
+    "fields": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::field.field"
+    },
+    "img": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "formats": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::format.format"
     }
   }
 }

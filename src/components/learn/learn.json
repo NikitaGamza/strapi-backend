@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_learn_learns",
+  "info": {
+    "displayName": "learn"
+  },
+  "options": {},
+  "attributes": {
+    "learnText": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

@@ -926,8 +926,12 @@ export interface ApiCourseCourse extends Schema.CollectionType {
     imgMain: Attribute.Media & Attribute.Required;
     about: Attribute.RichText & Attribute.Required;
     aboutMediaLink: Attribute.String;
-    learn: Attribute.JSON & Attribute.Required;
-    price: Attribute.Integer & Attribute.Required;
+    priceFull: Attribute.Integer &
+      Attribute.Required &
+      Attribute.SetMinMax<{
+        min: 0;
+      }> &
+      Attribute.DefaultTo<0>;
     course_type: Attribute.Relation<
       'api::course.course',
       'oneToOne',
@@ -938,7 +942,25 @@ export interface ApiCourseCourse extends Schema.CollectionType {
       'oneToMany',
       'api::course-fit-for.course-fit-for'
     >;
-    priceMonth: Attribute.Integer;
+    priceMonth: Attribute.Integer &
+      Attribute.SetMinMax<{
+        min: 0;
+      }> &
+      Attribute.DefaultTo<0>;
+    learn: Attribute.Component<'learn.learn', true> & Attribute.Required;
+    program: Attribute.Component<'program.program', true>;
+    psychologists: Attribute.Relation<
+      'api::course.course',
+      'oneToMany',
+      'api::psychologist.psychologist'
+    >;
+    courseFb: Attribute.Component<'course-fb.course-fb', true>;
+    freePlace: Attribute.Integer &
+      Attribute.Required &
+      Attribute.SetMinMax<{
+        min: 0;
+      }> &
+      Attribute.DefaultTo<0>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1085,6 +1107,72 @@ export interface ApiFormatFormat extends Schema.CollectionType {
   };
 }
 
+export interface ApiInterviewInterview extends Schema.CollectionType {
+  collectionName: 'interviews';
+  info: {
+    singularName: 'interview';
+    pluralName: 'interviews';
+    displayName: 'Interview';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    firstName: Attribute.String & Attribute.Required;
+    lastName: Attribute.String & Attribute.Required;
+    university: Attribute.String & Attribute.Required;
+    speciality: Attribute.String & Attribute.Required;
+    endYear: Attribute.Integer & Attribute.Required;
+    qualification: Attribute.Enumeration<
+      [
+        '\u041C\u0430\u0433\u0438\u0441\u0442\u0440',
+        '\u0411\u0430\u043A\u0430\u043B\u0430\u0432\u0440',
+        '\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442'
+      ]
+    > &
+      Attribute.Required &
+      Attribute.DefaultTo<'\u041C\u0430\u0433\u0438\u0441\u0442\u0440'>;
+    repair: Attribute.Boolean & Attribute.Required & Attribute.DefaultTo<false>;
+    addEdu: Attribute.Component<'add-edu.add-edu', true>;
+    academicDegree: Attribute.Enumeration<
+      [
+        '\u041A.\u043F.\u043D (\u041A\u0430\u043D\u0434\u0438\u0434\u0430\u0442 \u043F\u0441\u0438\u0445\u043E\u043B\u043E\u0433\u0438\u0447. \u043D\u0430\u0443\u043A)',
+        '\u0414.\u043F.\u043D. (\u0414\u043E\u043A\u0442\u043E\u0440 \u043F\u0441\u0438\u0445\u043E\u043B\u043E\u0433\u0438\u0447. \u043D\u0430\u0443\u043A)',
+        '\u041A.\u043C.\u043D. (\u041A\u0430\u043D\u0434\u0438\u0434\u0430\u0442 \u043C\u0435\u0434. \u043D\u0430\u0443\u043A)',
+        '\u0414.\u043C.\u043D. (\u0414\u043E\u043A\u0442\u043E\u0440 \u043C\u0435\u0434. \u043D\u0430\u0443\u043A)',
+        '\u041D\u0435\u0442'
+      ]
+    > &
+      Attribute.Required &
+      Attribute.DefaultTo<'\u041A.\u043F.\u043D (\u041A\u0430\u043D\u0434\u0438\u0434\u0430\u0442 \u043F\u0441\u0438\u0445\u043E\u043B\u043E\u0433\u0438\u0447. \u043D\u0430\u0443\u043A)'>;
+    diploma: Attribute.Media;
+    experience: Attribute.Integer &
+      Attribute.Required &
+      Attribute.SetMinMax<{
+        min: 0;
+      }> &
+      Attribute.DefaultTo<0>;
+    work: Attribute.Component<'work.work', true>;
+    email: Attribute.String & Attribute.Required;
+    phone: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::interview.interview',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::interview.interview',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiMethodMethod extends Schema.CollectionType {
   collectionName: 'methods';
   info: {
@@ -1142,6 +1230,35 @@ export interface ApiPsychologistPsychologist extends Schema.CollectionType {
     address: Attribute.String;
     metro: Attribute.String;
     startWork: Attribute.Date & Attribute.Required;
+    sex: Attribute.Boolean & Attribute.Required & Attribute.DefaultTo<true>;
+    education: Attribute.Component<'education.education', true>;
+    experience: Attribute.Component<'experience.experience', true> &
+      Attribute.Required;
+    methods: Attribute.Relation<
+      'api::psychologist.psychologist',
+      'oneToMany',
+      'api::method.method'
+    >;
+    themes: Attribute.Relation<
+      'api::psychologist.psychologist',
+      'oneToMany',
+      'api::theme.theme'
+    >;
+    aboutQuote: Attribute.String & Attribute.Required;
+    aboutText: Attribute.RichText & Attribute.Required;
+    diploma: Attribute.Media & Attribute.Required;
+    feedbacks: Attribute.Component<'feedbacks.feedbacks', true>;
+    fields: Attribute.Relation<
+      'api::psychologist.psychologist',
+      'oneToMany',
+      'api::field.field'
+    >;
+    img: Attribute.Media & Attribute.Required;
+    formats: Attribute.Relation<
+      'api::psychologist.psychologist',
+      'oneToMany',
+      'api::format.format'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1224,6 +1341,8 @@ export interface ApiTestTest extends Schema.CollectionType {
       'oneToMany',
       'api::theme.theme'
     >;
+    testNameRepeat: Attribute.Component<'test-repeat.test-repeat', true> &
+      Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1246,12 +1365,6 @@ export interface ApiThemeTheme extends Schema.CollectionType {
   };
   attributes: {
     themeName: Attribute.String & Attribute.Required;
-    test: Attribute.Relation<'api::theme.theme', 'manyToOne', 'api::test.test'>;
-    advice: Attribute.Relation<
-      'api::theme.theme',
-      'manyToOne',
-      'api::advice.advice'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1333,6 +1446,7 @@ declare module '@strapi/types' {
       'api::course-type.course-type': ApiCourseTypeCourseType;
       'api::field.field': ApiFieldField;
       'api::format.format': ApiFormatFormat;
+      'api::interview.interview': ApiInterviewInterview;
       'api::method.method': ApiMethodMethod;
       'api::psychologist.psychologist': ApiPsychologistPsychologist;
       'api::question.question': ApiQuestionQuestion;

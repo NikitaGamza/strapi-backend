@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_test_repeat_test_repeats",
+  "info": {
+    "displayName": "testRepeat"
+  },
+  "options": {},
+  "attributes": {
+    "testTextRepeat": {
+      "type": "string",
+      "required": true
+    },
+    "testazaza": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_add_edu_add_edus",
+  "info": {
+    "displayName": "addEdu"
+  },
+  "options": {},
+  "attributes": {
+    "addEduName": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

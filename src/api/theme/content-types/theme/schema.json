@@ -14,18 +14,6 @@
     "themeName": {
       "type": "string",
       "required": true
-    },
-    "test": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::test.test",
-      "inversedBy": "themes"
-    },
-    "advice": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::advice.advice",
-      "inversedBy": "themes"
     }
   }
 }

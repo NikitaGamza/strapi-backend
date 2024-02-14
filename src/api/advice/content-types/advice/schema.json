@@ -57,8 +57,7 @@
     "themes": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::theme.theme",
-      "mappedBy": "advice"
+      "target": "api::theme.theme"
     }
   }
 }

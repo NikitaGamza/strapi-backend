@@ -25,8 +25,14 @@
     "themes": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::theme.theme",
-      "mappedBy": "test"
+      "target": "api::theme.theme"
+    },
+    "testNameRepeat": {
+      "displayName": "testRepeat",
+      "type": "component",
+      "repeatable": true,
+      "component": "test-repeat.test-repeat",
+      "required": true
     }
   }
 }

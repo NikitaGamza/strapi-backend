@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_specialization_specializations",
+  "info": {
+    "displayName": "specialization"
+  },
+  "options": {},
+  "attributes": {
+    "specName": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

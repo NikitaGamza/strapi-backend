@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_experience_experiences",
+  "info": {
+    "displayName": "experience"
+  },
+  "options": {},
+  "attributes": {
+    "workPlace": {
+      "type": "string",
+      "required": true
+    },
+    "specialization": {
+      "type": "string",
+      "required": true
+    },
+    "startYear": {
+      "type": "integer",
+      "required": true
+    },
+    "endYear": {
+      "type": "integer",
+      "required": true
+    }
+  }
+}

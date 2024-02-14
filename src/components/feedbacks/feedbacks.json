@@ -1,0 +1,41 @@
+{
+  "collectionName": "components_feedbacks_feedbacks",
+  "info": {
+    "displayName": "feedbacks",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "feedbackImg": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "feedbackName": {
+      "type": "string",
+      "required": true
+    },
+    "feedbackText": {
+      "type": "string",
+      "required": true,
+      "maxLength": 255
+    },
+    "rank": {
+      "type": "integer",
+      "required": true,
+      "max": 5,
+      "min": 0
+    },
+    "feedbackDate": {
+      "type": "date",
+      "required": true
+    },
+    "feedbackImgUrl": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

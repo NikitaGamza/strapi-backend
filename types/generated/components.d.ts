@@ -22,10 +22,13 @@ export interface CourseFbCourseFb extends Schema.Component {
     fbDate: Attribute.Date & Attribute.Required;
     fbRank: Attribute.Integer &
       Attribute.Required &
-      Attribute.SetMinMax<{
-        min: 0;
-        max: 5;
-      }>;
+      Attribute.SetMinMax<
+        {
+          min: 0;
+          max: 5;
+        },
+        number
+      >;
     fbText: Attribute.RichText & Attribute.Required;
   };
 }
@@ -72,10 +75,13 @@ export interface FeedbacksFeedbacks extends Schema.Component {
       }>;
     rank: Attribute.Integer &
       Attribute.Required &
-      Attribute.SetMinMax<{
-        min: 0;
-        max: 5;
-      }>;
+      Attribute.SetMinMax<
+        {
+          min: 0;
+          max: 5;
+        },
+        number
+      >;
     feedbackDate: Attribute.Date & Attribute.Required;
     feedbackImgUrl: Attribute.String & Attribute.Required;
   };
@@ -133,14 +139,20 @@ export interface WorkWork extends Schema.Component {
     workTitle: Attribute.String & Attribute.Required;
     startYear: Attribute.Integer &
       Attribute.Required &
-      Attribute.SetMinMax<{
-        min: 0;
-      }> &
+      Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      > &
       Attribute.DefaultTo<0>;
     endYear: Attribute.Integer &
-      Attribute.SetMinMax<{
-        min: 0;
-      }> &
+      Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      > &
       Attribute.DefaultTo<0>;
   };
 }

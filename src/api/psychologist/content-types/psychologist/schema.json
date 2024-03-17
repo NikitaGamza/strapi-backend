@@ -112,6 +112,11 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::format.format"
+    },
+    "isPopular": {
+      "type": "boolean",
+      "default": false,
+      "required": true
     }
   }
 }

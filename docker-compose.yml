@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  strapi:
+    container_name: strapi-backend
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports: 
+      - 1234:1337

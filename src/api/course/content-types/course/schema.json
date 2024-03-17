@@ -20,12 +20,6 @@
       "type": "text",
       "required": true
     },
-    "format": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::format.format",
-      "inversedBy": "course"
-    },
     "startDate": {
       "type": "date",
       "required": true

@@ -1,0 +1,11 @@
+.output
+.nuxt
+.nitro
+.github
+.cache
+.data
+.git
+.idea
+dist
+scripts
+README.md

@@ -922,11 +922,6 @@ export interface ApiCourseCourse extends Schema.CollectionType {
   attributes: {
     courseName: Attribute.String & Attribute.Required;
     courseDescription: Attribute.Text & Attribute.Required;
-    format: Attribute.Relation<
-      'api::course.course',
-      'oneToOne',
-      'api::format.format'
-    >;
     startDate: Attribute.Date & Attribute.Required;
     duralation: Attribute.Integer & Attribute.Required;
     time: Attribute.Time & Attribute.Required;
@@ -1108,11 +1103,6 @@ export interface ApiFormatFormat extends Schema.CollectionType {
   };
   attributes: {
     formatName: Attribute.String & Attribute.Required;
-    course: Attribute.Relation<
-      'api::format.format',
-      'oneToOne',
-      'api::course.course'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1286,6 +1276,9 @@ export interface ApiPsychologistPsychologist extends Schema.CollectionType {
       'oneToMany',
       'api::format.format'
     >;
+    isPopular: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

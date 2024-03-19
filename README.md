@@ -18,7 +18,7 @@ Start your Strapi application with autoReload disabled. [Learn more](https://doc
 
 ```
 npm run start
-# or ornotTESTTESTTEST
+# or ornotTESTTESTTEST bjvhbfvhdjfvbjdfvb
 yarn start
 ```
 

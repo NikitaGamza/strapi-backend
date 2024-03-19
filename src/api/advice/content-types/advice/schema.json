@@ -47,10 +47,6 @@
       ]
     },
     "adviceText": {
-      "type": "blocks",
-      "required": true
-    },
-    "adviceText2": {
       "type": "richtext",
       "required": true
     },

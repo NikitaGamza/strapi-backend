@@ -15,9 +15,6 @@
     "Title": {
       "type": "string"
     },
-    "question": {
-      "type": "blocks"
-    },
     "clientName": {
       "type": "string"
     },
@@ -53,10 +50,14 @@
       ]
     },
     "answerText": {
-      "type": "blocks"
+      "type": "richtext",
+      "required": true
     },
     "themes": {
-      "type": "json"
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::theme.theme",
+      "mappedBy": "question"
     }
   }
 }

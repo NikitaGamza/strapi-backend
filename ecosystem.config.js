@@ -1,6 +1,6 @@
 module.exports = {
   apps : [{
-    script: 'npm run start',
+    script: 'yarn start',
     name: 'strapi-backend'
   }],
 };

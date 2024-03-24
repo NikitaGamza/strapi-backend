@@ -830,8 +830,7 @@ export interface ApiAdviceAdvice extends Schema.CollectionType {
     authorFIO: Attribute.String & Attribute.Required;
     authorStatus: Attribute.String & Attribute.Required;
     authorImg: Attribute.Media & Attribute.Required;
-    adviceText: Attribute.Blocks & Attribute.Required;
-    adviceText2: Attribute.RichText & Attribute.Required;
+    adviceText: Attribute.RichText & Attribute.Required;
     themes: Attribute.Relation<
       'api::advice.advice',
       'oneToMany',
@@ -908,6 +907,59 @@ export interface ApiCityCity extends Schema.CollectionType {
   };
 }
 
+export interface ApiCommonQuestionCommonQuestion extends Schema.CollectionType {
+  collectionName: 'common_questions';
+  info: {
+    singularName: 'common-question';
+    pluralName: 'common-questions';
+    displayName: 'CommonQuestion';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    phone: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::common-question.common-question',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::common-question.common-question',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::common-question.common-question',
+      'oneToMany',
+      'api::common-question.common-question'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiCourseCourse extends Schema.CollectionType {
   collectionName: 'courses';
   info: {
@@ -980,6 +1032,11 @@ export interface ApiCourseCourse extends Schema.CollectionType {
         number
       > &
       Attribute.DefaultTo<0>;
+    format: Attribute.Relation<
+      'api::course.course',
+      'oneToOne',
+      'api::format.format'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1310,15 +1367,18 @@ export interface ApiQuestionQuestion extends Schema.CollectionType {
   };
   attributes: {
     Title: Attribute.String;
-    question: Attribute.Blocks;
     clientName: Attribute.String;
     clientStatus: Attribute.String;
     clientImg: Attribute.Media;
     answerFIO: Attribute.String;
     answerStatus: Attribute.String;
     answerImg: Attribute.Media;
-    answerText: Attribute.Blocks;
-    themes: Attribute.JSON;
+    answerText: Attribute.RichText & Attribute.Required;
+    themes: Attribute.Relation<
+      'api::question.question',
+      'oneToMany',
+      'api::theme.theme'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1385,6 +1445,11 @@ export interface ApiThemeTheme extends Schema.CollectionType {
   };
   attributes: {
     themeName: Attribute.String & Attribute.Required;
+    question: Attribute.Relation<
+      'api::theme.theme',
+      'manyToOne',
+      'api::question.question'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1461,6 +1526,7 @@ declare module '@strapi/types' {
       'api::advice.advice': ApiAdviceAdvice;
       'api::article.article': ApiArticleArticle;
       'api::city.city': ApiCityCity;
+      'api::common-question.common-question': ApiCommonQuestionCommonQuestion;
       'api::course.course': ApiCourseCourse;
       'api::course-fit-for.course-fit-for': ApiCourseFitForCourseFitFor;
       'api::course-type.course-type': ApiCourseTypeCourseType;

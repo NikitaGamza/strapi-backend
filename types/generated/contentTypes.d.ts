@@ -1383,11 +1383,6 @@ export interface ApiQuestionQuestion extends Schema.CollectionType {
     answerStatus: Attribute.String;
     answerImg: Attribute.Media;
     answerText: Attribute.RichText & Attribute.Required;
-    themes: Attribute.Relation<
-      'api::question.question',
-      'oneToMany',
-      'api::theme.theme'
-    >;
     readable: Attribute.Integer &
       Attribute.SetMinMax<
         {
@@ -1396,6 +1391,11 @@ export interface ApiQuestionQuestion extends Schema.CollectionType {
         number
       > &
       Attribute.DefaultTo<0>;
+    themes: Attribute.Relation<
+      'api::question.question',
+      'oneToMany',
+      'api::theme.theme'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1456,17 +1456,13 @@ export interface ApiThemeTheme extends Schema.CollectionType {
     singularName: 'theme';
     pluralName: 'themes';
     displayName: 'Theme';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     themeName: Attribute.String & Attribute.Required;
-    question: Attribute.Relation<
-      'api::theme.theme',
-      'manyToOne',
-      'api::question.question'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

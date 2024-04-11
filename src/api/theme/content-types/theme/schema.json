@@ -4,7 +4,8 @@
   "info": {
     "singularName": "theme",
     "pluralName": "themes",
-    "displayName": "Theme"
+    "displayName": "Theme",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -14,12 +15,6 @@
     "themeName": {
       "type": "string",
       "required": true
-    },
-    "question": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::question.question",
-      "inversedBy": "themes"
     }
   }
 }

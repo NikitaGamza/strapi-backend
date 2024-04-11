@@ -836,6 +836,14 @@ export interface ApiAdviceAdvice extends Schema.CollectionType {
       'oneToMany',
       'api::theme.theme'
     >;
+    readable: Attribute.Integer &
+      Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      > &
+      Attribute.DefaultTo<0>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1336,6 +1344,7 @@ export interface ApiPsychologistPsychologist extends Schema.CollectionType {
     isPopular: Attribute.Boolean &
       Attribute.Required &
       Attribute.DefaultTo<false>;
+    followers: Attribute.JSON & Attribute.Private;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1379,6 +1388,14 @@ export interface ApiQuestionQuestion extends Schema.CollectionType {
       'oneToMany',
       'api::theme.theme'
     >;
+    readable: Attribute.Integer &
+      Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      > &
+      Attribute.DefaultTo<0>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1474,6 +1491,7 @@ export interface ApiVideoVideo extends Schema.CollectionType {
     singularName: 'video';
     pluralName: 'videos';
     displayName: 'Video';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1486,6 +1504,14 @@ export interface ApiVideoVideo extends Schema.CollectionType {
       'api::theme.theme'
     >;
     videoName: Attribute.String & Attribute.Required;
+    readable: Attribute.Integer &
+      Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      > &
+      Attribute.DefaultTo<0>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -54,6 +54,11 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::theme.theme"
+    },
+    "readable": {
+      "type": "integer",
+      "default": 0,
+      "min": 0
     }
   }
 }

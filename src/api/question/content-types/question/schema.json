@@ -58,6 +58,11 @@
       "relation": "oneToMany",
       "target": "api::theme.theme",
       "mappedBy": "question"
+    },
+    "readable": {
+      "type": "integer",
+      "default": 0,
+      "min": 0
     }
   }
 }

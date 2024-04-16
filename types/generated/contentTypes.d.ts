@@ -1396,6 +1396,7 @@ export interface ApiQuestionQuestion extends Schema.CollectionType {
       'oneToMany',
       'api::theme.theme'
     >;
+    questionText: Attribute.RichText;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

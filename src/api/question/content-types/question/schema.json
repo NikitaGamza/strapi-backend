@@ -62,6 +62,9 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::theme.theme"
+    },
+    "questionText": {
+      "type": "richtext"
     }
   }
 }

@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "contacts",
+  "info": {
+    "singularName": "contact",
+    "pluralName": "contacts",
+    "displayName": "Contact"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "phone",
+        "email",
+        "telegram",
+        "vk",
+        "whatsapp"
+      ]
+    },
+    "link": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

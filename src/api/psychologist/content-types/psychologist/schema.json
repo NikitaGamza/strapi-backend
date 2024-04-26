@@ -121,6 +121,12 @@
     "followers": {
       "type": "json",
       "private": true
+    },
+    "socialLicks": {
+      "displayName": "socialLinks",
+      "type": "component",
+      "repeatable": true,
+      "component": "social-links.social-links"
     }
   }
 }

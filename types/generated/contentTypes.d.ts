@@ -1378,6 +1378,7 @@ export interface ApiPsychologistPsychologist extends Schema.CollectionType {
       Attribute.Required &
       Attribute.DefaultTo<false>;
     followers: Attribute.JSON & Attribute.Private;
+    socialLicks: Attribute.Component<'social-links.social-links', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

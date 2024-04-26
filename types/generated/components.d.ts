@@ -108,6 +108,17 @@ export interface ProgramProgram extends Schema.Component {
   };
 }
 
+export interface SocialLinksSocialLinks extends Schema.Component {
+  collectionName: 'components_social_links_social_links';
+  info: {
+    displayName: 'socialLinks';
+  };
+  attributes: {
+    type: Attribute.Enumeration<['youtube', 'vk', 'telegram']>;
+    link: Attribute.String & Attribute.Required;
+  };
+}
+
 export interface SpecializationSpecialization extends Schema.Component {
   collectionName: 'components_specialization_specializations';
   info: {
@@ -167,6 +178,7 @@ declare module '@strapi/types' {
       'feedbacks.feedbacks': FeedbacksFeedbacks;
       'learn.learn': LearnLearn;
       'program.program': ProgramProgram;
+      'social-links.social-links': SocialLinksSocialLinks;
       'specialization.specialization': SpecializationSpecialization;
       'test-repeat.test-repeat': TestRepeatTestRepeat;
       'work.work': WorkWork;

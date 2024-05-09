@@ -31,14 +31,6 @@
         }
       },
       "type": "string"
-    },
-    "comment": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "text"
     }
   }
 }

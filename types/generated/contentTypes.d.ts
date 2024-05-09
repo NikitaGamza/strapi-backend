@@ -947,7 +947,7 @@ export interface ApiCommonQuestionCommonQuestion extends Schema.CollectionType {
     comment: Attribute.Text &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: false;
+          localized: true;
         };
       }>;
     createdAt: Attribute.DateTime;

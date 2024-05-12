@@ -1455,6 +1455,36 @@ export interface ApiQuestionQuestion extends Schema.CollectionType {
   };
 }
 
+export interface ApiSubscribeSubscribe extends Schema.CollectionType {
+  collectionName: 'subscribes';
+  info: {
+    singularName: 'subscribe';
+    pluralName: 'subscribes';
+    displayName: 'subscribe';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    email: Attribute.String & Attribute.Private;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::subscribe.subscribe',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::subscribe.subscribe',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTestTest extends Schema.CollectionType {
   collectionName: 'tests';
   info: {
@@ -1600,6 +1630,7 @@ declare module '@strapi/types' {
       'api::method.method': ApiMethodMethod;
       'api::psychologist.psychologist': ApiPsychologistPsychologist;
       'api::question.question': ApiQuestionQuestion;
+      'api::subscribe.subscribe': ApiSubscribeSubscribe;
       'api::test.test': ApiTestTest;
       'api::theme.theme': ApiThemeTheme;
       'api::video.video': ApiVideoVideo;

@@ -1455,6 +1455,42 @@ export interface ApiQuestionQuestion extends Schema.CollectionType {
   };
 }
 
+export interface ApiRecordPsychologistRecordPsychologist
+  extends Schema.CollectionType {
+  collectionName: 'record_psychologists';
+  info: {
+    singularName: 'record-psychologist';
+    pluralName: 'record-psychologists';
+    displayName: 'RecordPsychologist';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Private;
+    edge: Attribute.Integer & Attribute.Private;
+    email: Attribute.String & Attribute.Private;
+    phone: Attribute.Text & Attribute.Private;
+    comment: Attribute.Text & Attribute.Private;
+    promo: Attribute.String & Attribute.Private;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::record-psychologist.record-psychologist',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::record-psychologist.record-psychologist',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiSubscribeSubscribe extends Schema.CollectionType {
   collectionName: 'subscribes';
   info: {
@@ -1630,6 +1666,7 @@ declare module '@strapi/types' {
       'api::method.method': ApiMethodMethod;
       'api::psychologist.psychologist': ApiPsychologistPsychologist;
       'api::question.question': ApiQuestionQuestion;
+      'api::record-psychologist.record-psychologist': ApiRecordPsychologistRecordPsychologist;
       'api::subscribe.subscribe': ApiSubscribeSubscribe;
       'api::test.test': ApiTestTest;
       'api::theme.theme': ApiThemeTheme;

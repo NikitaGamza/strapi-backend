@@ -4,7 +4,8 @@
   "info": {
     "singularName": "record-psychologist",
     "pluralName": "record-psychologists",
-    "displayName": "RecordPsychologist"
+    "displayName": "RecordPsychologist",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -34,6 +35,12 @@
     "promo": {
       "type": "string",
       "private": true
+    },
+    "psychologFirstName": {
+      "type": "string"
+    },
+    "psychologLastName": {
+      "type": "string"
     }
   }
 }

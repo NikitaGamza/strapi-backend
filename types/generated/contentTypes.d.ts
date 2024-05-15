@@ -1462,6 +1462,7 @@ export interface ApiRecordPsychologistRecordPsychologist
     singularName: 'record-psychologist';
     pluralName: 'record-psychologists';
     displayName: 'RecordPsychologist';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1473,6 +1474,8 @@ export interface ApiRecordPsychologistRecordPsychologist
     phone: Attribute.Text & Attribute.Private;
     comment: Attribute.Text & Attribute.Private;
     promo: Attribute.String & Attribute.Private;
+    psychologFirstName: Attribute.String;
+    psychologLastName: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -1194,6 +1194,47 @@ export interface ApiFieldField extends Schema.CollectionType {
   };
 }
 
+export interface ApiFindPsychologistFindPsychologist
+  extends Schema.CollectionType {
+  collectionName: 'find_psychologists';
+  info: {
+    singularName: 'find-psychologist';
+    pluralName: 'find-psychologists';
+    displayName: 'FindPsychologist';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Private;
+    complaint: Attribute.JSON;
+    WhoNeed: Attribute.String;
+    format: Attribute.String;
+    city: Attribute.String;
+    sex: Attribute.String;
+    experience: Attribute.String;
+    date: Attribute.String;
+    time: Attribute.String;
+    phone: Attribute.String & Attribute.Private;
+    problemDescribe: Attribute.Text & Attribute.Private;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::find-psychologist.find-psychologist',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::find-psychologist.find-psychologist',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiFormatFormat extends Schema.CollectionType {
   collectionName: 'formats';
   info: {
@@ -1664,6 +1705,7 @@ declare module '@strapi/types' {
       'api::course-fit-for.course-fit-for': ApiCourseFitForCourseFitFor;
       'api::course-type.course-type': ApiCourseTypeCourseType;
       'api::field.field': ApiFieldField;
+      'api::find-psychologist.find-psychologist': ApiFindPsychologistFindPsychologist;
       'api::format.format': ApiFormatFormat;
       'api::interview.interview': ApiInterviewInterview;
       'api::method.method': ApiMethodMethod;

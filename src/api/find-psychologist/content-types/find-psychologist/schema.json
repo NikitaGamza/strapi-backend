@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "find_psychologists",
+  "info": {
+    "singularName": "find-psychologist",
+    "pluralName": "find-psychologists",
+    "displayName": "FindPsychologist"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "private": true
+    },
+    "complaint": {
+      "type": "json"
+    },
+    "WhoNeed": {
+      "type": "string"
+    },
+    "format": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "sex": {
+      "type": "string"
+    },
+    "experience": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string"
+    },
+    "time": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string",
+      "private": true
+    },
+    "problemDescribe": {
+      "type": "text",
+      "private": true
+    }
+  }
+}

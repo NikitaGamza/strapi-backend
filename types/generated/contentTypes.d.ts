@@ -1568,6 +1568,38 @@ export interface ApiRecordPsychologistRecordPsychologist
   };
 }
 
+export interface ApiRecordTariffRecordTariff extends Schema.CollectionType {
+  collectionName: 'record_tariffs';
+  info: {
+    singularName: 'record-tariff';
+    pluralName: 'record-tariffs';
+    displayName: 'recordTariff';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Private;
+    email: Attribute.String & Attribute.Private;
+    phone: Attribute.String & Attribute.Private;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::record-tariff.record-tariff',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::record-tariff.record-tariff',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiSubscribeSubscribe extends Schema.CollectionType {
   collectionName: 'subscribes';
   info: {
@@ -1827,6 +1859,7 @@ declare module '@strapi/types' {
       'api::question.question': ApiQuestionQuestion;
       'api::record-interview.record-interview': ApiRecordInterviewRecordInterview;
       'api::record-psychologist.record-psychologist': ApiRecordPsychologistRecordPsychologist;
+      'api::record-tariff.record-tariff': ApiRecordTariffRecordTariff;
       'api::subscribe.subscribe': ApiSubscribeSubscribe;
       'api::tariff.tariff': ApiTariffTariff;
       'api::test.test': ApiTestTest;

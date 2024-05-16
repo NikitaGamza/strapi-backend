@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "record_tariffs",
+  "info": {
+    "singularName": "record-tariff",
+    "pluralName": "record-tariffs",
+    "displayName": "recordTariff"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "private": true
+    },
+    "email": {
+      "type": "string",
+      "required": false,
+      "private": true
+    },
+    "phone": {
+      "type": "string",
+      "private": true
+    }
+  }
+}

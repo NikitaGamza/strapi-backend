@@ -1496,6 +1496,39 @@ export interface ApiQuestionQuestion extends Schema.CollectionType {
   };
 }
 
+export interface ApiRecordInterviewRecordInterview
+  extends Schema.CollectionType {
+  collectionName: 'record_interviews';
+  info: {
+    singularName: 'record-interview';
+    pluralName: 'record-interviews';
+    displayName: 'RecordInterview';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    firstName: Attribute.String & Attribute.Private;
+    files: Attribute.Media & Attribute.Private;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::record-interview.record-interview',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::record-interview.record-interview',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiRecordPsychologistRecordPsychologist
   extends Schema.CollectionType {
   collectionName: 'record_psychologists';
@@ -1558,6 +1591,87 @@ export interface ApiSubscribeSubscribe extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::subscribe.subscribe',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTariffTariff extends Schema.CollectionType {
+  collectionName: 'tariffs';
+  info: {
+    singularName: 'tariff';
+    pluralName: 'tariffs';
+    displayName: 'tariff';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    community: Attribute.Enumeration<
+      [
+        '\u041E\u0434\u0438\u043D \u043D\u0430 \u043E\u0434\u0438\u043D',
+        '\u0421\u0435\u043C\u0435\u0439\u043D\u044B\u0439',
+        '\u0421 \u0440\u0435\u0431\u0451\u043D\u043A\u043E\u043C'
+      ]
+    > &
+      Attribute.Required &
+      Attribute.DefaultTo<'\u041E\u0434\u0438\u043D \u043D\u0430 \u043E\u0434\u0438\u043D'>;
+    format: Attribute.Enumeration<
+      [
+        '\u041E\u0447\u043D\u043E',
+        '\u041E\u043D\u043B\u0430\u0439\u043D',
+        '\u041F\u0435\u0440\u0435\u043F\u0438\u0441\u043A\u0430'
+      ]
+    > &
+      Attribute.Required &
+      Attribute.DefaultTo<'\u041E\u0447\u043D\u043E'>;
+    session: Attribute.Integer &
+      Attribute.Required &
+      Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      > &
+      Attribute.DefaultTo<1>;
+    priceFull: Attribute.Integer &
+      Attribute.Required &
+      Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      > &
+      Attribute.DefaultTo<2500>;
+    sale: Attribute.Integer &
+      Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      > &
+      Attribute.DefaultTo<0>;
+    pricePerSession: Attribute.Integer &
+      Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      > &
+      Attribute.DefaultTo<0>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::tariff.tariff',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::tariff.tariff',
       'oneToOne',
       'admin::user'
     > &
@@ -1711,8 +1825,10 @@ declare module '@strapi/types' {
       'api::method.method': ApiMethodMethod;
       'api::psychologist.psychologist': ApiPsychologistPsychologist;
       'api::question.question': ApiQuestionQuestion;
+      'api::record-interview.record-interview': ApiRecordInterviewRecordInterview;
       'api::record-psychologist.record-psychologist': ApiRecordPsychologistRecordPsychologist;
       'api::subscribe.subscribe': ApiSubscribeSubscribe;
+      'api::tariff.tariff': ApiTariffTariff;
       'api::test.test': ApiTestTest;
       'api::theme.theme': ApiThemeTheme;
       'api::video.video': ApiVideoVideo;

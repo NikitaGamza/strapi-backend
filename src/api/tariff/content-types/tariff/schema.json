@@ -1,0 +1,57 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tariffs",
+  "info": {
+    "singularName": "tariff",
+    "pluralName": "tariffs",
+    "displayName": "tariff"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "community": {
+      "type": "enumeration",
+      "enum": [
+        "Один на один",
+        "Семейный",
+        "С ребёнком"
+      ],
+      "required": true,
+      "default": "Один на один"
+    },
+    "format": {
+      "type": "enumeration",
+      "enum": [
+        "Очно",
+        "Онлайн",
+        "Переписка"
+      ],
+      "required": true,
+      "default": "Очно"
+    },
+    "session": {
+      "type": "integer",
+      "default": 1,
+      "required": true,
+      "min": 1
+    },
+    "priceFull": {
+      "type": "integer",
+      "default": 2500,
+      "required": true,
+      "min": 1
+    },
+    "sale": {
+      "type": "integer",
+      "default": 0,
+      "min": 0
+    },
+    "pricePerSession": {
+      "type": "integer",
+      "default": 0,
+      "min": 0
+    }
+  }
+}

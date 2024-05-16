@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "record_interviews",
+  "info": {
+    "singularName": "record-interview",
+    "pluralName": "record-interviews",
+    "displayName": "RecordInterview",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "firstName": {
+      "type": "string",
+      "private": true
+    },
+    "files": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "private": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    }
+  }
+}

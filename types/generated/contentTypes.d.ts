@@ -1529,6 +1529,40 @@ export interface ApiRecordInterviewRecordInterview
   };
 }
 
+export interface ApiRecordOrganizationRecordOrganization
+  extends Schema.CollectionType {
+  collectionName: 'record_organizations';
+  info: {
+    singularName: 'record-organization';
+    pluralName: 'record-organizations';
+    displayName: 'RecordOrganization';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    companyName: Attribute.String & Attribute.Private;
+    name: Attribute.String & Attribute.Private;
+    phone: Attribute.String & Attribute.Private;
+    comment: Attribute.Text & Attribute.Private;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::record-organization.record-organization',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::record-organization.record-organization',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiRecordPsychologistRecordPsychologist
   extends Schema.CollectionType {
   collectionName: 'record_psychologists';
@@ -1858,6 +1892,7 @@ declare module '@strapi/types' {
       'api::psychologist.psychologist': ApiPsychologistPsychologist;
       'api::question.question': ApiQuestionQuestion;
       'api::record-interview.record-interview': ApiRecordInterviewRecordInterview;
+      'api::record-organization.record-organization': ApiRecordOrganizationRecordOrganization;
       'api::record-psychologist.record-psychologist': ApiRecordPsychologistRecordPsychologist;
       'api::record-tariff.record-tariff': ApiRecordTariffRecordTariff;
       'api::subscribe.subscribe': ApiSubscribeSubscribe;

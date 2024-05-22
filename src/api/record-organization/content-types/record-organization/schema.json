@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "record_organizations",
+  "info": {
+    "singularName": "record-organization",
+    "pluralName": "record-organizations",
+    "displayName": "RecordOrganization"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "companyName": {
+      "type": "string",
+      "private": true
+    },
+    "name": {
+      "type": "string",
+      "private": true
+    },
+    "phone": {
+      "type": "string",
+      "private": true
+    },
+    "comment": {
+      "type": "text",
+      "private": true
+    }
+  }
+}

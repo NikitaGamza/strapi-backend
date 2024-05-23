@@ -1266,6 +1266,37 @@ export interface ApiFormatFormat extends Schema.CollectionType {
   };
 }
 
+export interface ApiFormatCommunityFormatCommunity
+  extends Schema.CollectionType {
+  collectionName: 'format_communities';
+  info: {
+    singularName: 'format-community';
+    pluralName: 'format-communities';
+    displayName: 'FormatCommunity';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::format-community.format-community',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::format-community.format-community',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiInterviewInterview extends Schema.CollectionType {
   collectionName: 'interviews';
   info: {
@@ -1670,29 +1701,12 @@ export interface ApiTariffTariff extends Schema.CollectionType {
     singularName: 'tariff';
     pluralName: 'tariffs';
     displayName: 'tariff';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    community: Attribute.Enumeration<
-      [
-        '\u041E\u0434\u0438\u043D \u043D\u0430 \u043E\u0434\u0438\u043D',
-        '\u0421\u0435\u043C\u0435\u0439\u043D\u044B\u0439',
-        '\u0421 \u0440\u0435\u0431\u0451\u043D\u043A\u043E\u043C'
-      ]
-    > &
-      Attribute.Required &
-      Attribute.DefaultTo<'\u041E\u0434\u0438\u043D \u043D\u0430 \u043E\u0434\u0438\u043D'>;
-    format: Attribute.Enumeration<
-      [
-        '\u041E\u0447\u043D\u043E',
-        '\u041E\u043D\u043B\u0430\u0439\u043D',
-        '\u041F\u0435\u0440\u0435\u043F\u0438\u0441\u043A\u0430'
-      ]
-    > &
-      Attribute.Required &
-      Attribute.DefaultTo<'\u041E\u0447\u043D\u043E'>;
     session: Attribute.Integer &
       Attribute.Required &
       Attribute.SetMinMax<
@@ -1727,6 +1741,16 @@ export interface ApiTariffTariff extends Schema.CollectionType {
         number
       > &
       Attribute.DefaultTo<0>;
+    format: Attribute.Relation<
+      'api::tariff.tariff',
+      'oneToOne',
+      'api::format.format'
+    >;
+    format_community: Attribute.Relation<
+      'api::tariff.tariff',
+      'oneToOne',
+      'api::format-community.format-community'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1887,6 +1911,7 @@ declare module '@strapi/types' {
       'api::field.field': ApiFieldField;
       'api::find-psychologist.find-psychologist': ApiFindPsychologistFindPsychologist;
       'api::format.format': ApiFormatFormat;
+      'api::format-community.format-community': ApiFormatCommunityFormatCommunity;
       'api::interview.interview': ApiInterviewInterview;
       'api::method.method': ApiMethodMethod;
       'api::psychologist.psychologist': ApiPsychologistPsychologist;

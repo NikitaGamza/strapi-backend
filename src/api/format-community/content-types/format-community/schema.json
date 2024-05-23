@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "format_communities",
+  "info": {
+    "singularName": "format-community",
+    "pluralName": "format-communities",
+    "displayName": "FormatCommunity"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    }
+  }
+}

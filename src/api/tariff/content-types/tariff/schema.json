@@ -4,33 +4,14 @@
   "info": {
     "singularName": "tariff",
     "pluralName": "tariffs",
-    "displayName": "tariff"
+    "displayName": "tariff",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "community": {
-      "type": "enumeration",
-      "enum": [
-        "Один на один",
-        "Семейный",
-        "С ребёнком"
-      ],
-      "required": true,
-      "default": "Один на один"
-    },
-    "format": {
-      "type": "enumeration",
-      "enum": [
-        "Очно",
-        "Онлайн",
-        "Переписка"
-      ],
-      "required": true,
-      "default": "Очно"
-    },
     "session": {
       "type": "integer",
       "default": 1,
@@ -52,6 +33,16 @@
       "type": "integer",
       "default": 0,
       "min": 0
+    },
+    "format": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::format.format"
+    },
+    "format_community": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::format-community.format-community"
     }
   }
 }

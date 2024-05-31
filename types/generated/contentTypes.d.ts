@@ -1475,6 +1475,37 @@ export interface ApiPsychologistPsychologist extends Schema.CollectionType {
   };
 }
 
+export interface ApiPsychologistsCoverPsychologistsCover
+  extends Schema.CollectionType {
+  collectionName: 'psychologists_covers';
+  info: {
+    singularName: 'psychologists-cover';
+    pluralName: 'psychologists-covers';
+    displayName: 'PsychologistsCover';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    img: Attribute.Media & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::psychologists-cover.psychologists-cover',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::psychologists-cover.psychologists-cover',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiQuestionQuestion extends Schema.CollectionType {
   collectionName: 'questions';
   info: {
@@ -1915,6 +1946,7 @@ declare module '@strapi/types' {
       'api::interview.interview': ApiInterviewInterview;
       'api::method.method': ApiMethodMethod;
       'api::psychologist.psychologist': ApiPsychologistPsychologist;
+      'api::psychologists-cover.psychologists-cover': ApiPsychologistsCoverPsychologistsCover;
       'api::question.question': ApiQuestionQuestion;
       'api::record-interview.record-interview': ApiRecordInterviewRecordInterview;
       'api::record-organization.record-organization': ApiRecordOrganizationRecordOrganization;
